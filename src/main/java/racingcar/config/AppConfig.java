@@ -7,17 +7,28 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class AppConfig {
+
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final InputParser inputParser;
+    private final RacingCarService racingCarService;
     private final RacingCarController racingCarController;
 
-    public AppConfig(){
-        InputView inputView = new InputView();
-        OutputView outputView = new OutputView();
-        InputParser inputParser = new InputParser();
-        RacingCarService racingCarService = new RacingCarService(inputView, outputView, inputParser);
-        this.racingCarController = new RacingCarController(racingCarService);
+    public AppConfig() {
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
+        this.inputParser = new InputParser();
+        this.racingCarService = new RacingCarService();
+
+        this.racingCarController = new RacingCarController(
+            this.racingCarService,
+            this.inputView,
+            this.outputView,
+            this.inputParser
+        );
     }
 
-    public RacingCarController getRacingCarController(){
+    public RacingCarController getRacingCarController() {
         return racingCarController;
     }
 }

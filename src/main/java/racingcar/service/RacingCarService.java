@@ -1,48 +1,18 @@
 package racingcar.service;
 
 import racingcar.domain.Cars;
-import racingcar.domain.dto.CarViews;
 import racingcar.domain.dto.Winners;
-import racingcar.util.InputParser;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class RacingCarService {
-    private final InputView inputView;
-    private final OutputView outputView;
-    private final InputParser inputParser;
-    public RacingCarService(InputView inputView, OutputView outputView, InputParser inputParser) {
-        this.inputView = inputView;
-        this.outputView = outputView;
-        this.inputParser = inputParser;
+    public Cars createCars(String[] carNames) {
+        return new Cars(carNames);
     }
 
-    // 1. 자동차 이름 입력 요청
-    public Cars setupRacingCars() {
-        outputView.printCarNameMessage();
-        String[] cars = inputParser.parseCarNames(inputView.readInput());
-        return new Cars(cars);
+    public void runRound(Cars cars) {
+        cars.runSingleRound();
     }
 
-    // 2. 시도 횟수 입력 요청
-    public int setupRaceCount() {
-        outputView.printTryCountMessage();
-        return inputParser.parseRaceCount(inputView.readInput());
+    public Winners findWinners(Cars cars) {
+        return cars.getWinners();
     }
-
-    // 3. 레이싱 실행
-    public void startRacing(Cars racingCars, int raceCount) {
-        outputView.printRacingResultMessage();
-        for (int i = 0; i < raceCount; i++) {
-            racingCars.runSingleRound();
-            outputView.printCarMovementCount(racingCars.getCarsView());
-        }
-    }
-
-    // 4. 우승자 발표
-    public void printWinners(Cars racingCars) {
-        Winners winners = racingCars.getWinners();
-        outputView.printWinnerAnnouncement(winners);
-    }
-
 }

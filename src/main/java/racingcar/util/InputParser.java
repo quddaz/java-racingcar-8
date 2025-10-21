@@ -1,7 +1,5 @@
 package racingcar.util;
 
-import java.util.Arrays;
-
 import racingcar.exception.ErrorMessage;
 
 public class InputParser {
