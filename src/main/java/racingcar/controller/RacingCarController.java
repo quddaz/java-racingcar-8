@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.Cars;
+import racingcar.domain.Race;
 import racingcar.domain.dto.CarViews;
 import racingcar.domain.dto.Winners;
 import racingcar.service.RacingCarService;
@@ -21,12 +21,12 @@ public class RacingCarController {
     }
 
     public void start() {
-        Cars cars = setupRacingCars();
+        Race race = setupRacingCars();
         int raceCount = setupRaceCount();
-        runRound(cars, raceCount);
-        printWinners(cars);
+        runRound(race, raceCount);
+        printWinners(race);
     }
-    private Cars setupRacingCars() {
+    private Race setupRacingCars() {
         outputView.printCarNameMessage();
         String[] carNames = inputParser.parseCarNames(inputView.readInput());
         return racingCarService.createCars(carNames);
@@ -37,17 +37,17 @@ public class RacingCarController {
         return inputParser.parseRaceCount(inputView.readInput());
     }
 
-    private void runRound(Cars cars, int raceCount) {
+    private void runRound(Race race, int raceCount) {
         outputView.printRacingResultMessage();
         for (int i = 0; i < raceCount; i++) {
-            racingCarService.runRound(cars);
-            CarViews carViews = cars.getCarViews();
+            racingCarService.runRound(race);
+            CarViews carViews = race.getCarViews();
             outputView.printCarMovementCount(carViews);
         }
     }
 
-    private void printWinners(Cars cars) {
-        Winners winners = racingCarService.findWinners(cars);
+    private void printWinners(Race race) {
+        Winners winners = racingCarService.findWinners(race);
         outputView.printWinnerAnnouncement(winners);
     }
 }

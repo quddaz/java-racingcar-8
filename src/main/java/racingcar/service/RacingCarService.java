@@ -1,18 +1,23 @@
 package racingcar.service;
 
-import racingcar.domain.Cars;
+import racingcar.domain.Race;
 import racingcar.domain.dto.Winners;
+import racingcar.util.RandomNumberGenerator;
 
 public class RacingCarService {
-    public Cars createCars(String[] carNames) {
-        return new Cars(carNames);
+    private final RandomNumberGenerator randomNumberGenerator;
+    public RacingCarService(RandomNumberGenerator randomNumberGenerator) {
+        this.randomNumberGenerator = randomNumberGenerator;
+    }
+    public Race createCars(String[] carNames) {
+        return new Race(carNames);
     }
 
-    public void runRound(Cars cars) {
-        cars.runSingleRound();
+    public void runRound(Race race) {
+        race.runSingleRound(randomNumberGenerator);
     }
 
-    public Winners findWinners(Cars cars) {
-        return cars.getWinners();
+    public Winners findWinners(Race race) {
+        return race.getWinners();
     }
 }

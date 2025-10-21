@@ -9,8 +9,8 @@ public class Car {
         this.position = position;
     }
 
-    public void movePosition(int number) {
-        if (number >= 4) {
+    public void movePosition(boolean canMove) {
+        if (canMove) {
             position++;
         }
     }

@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CarTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
+    private static final boolean MOVING_FORWARD = true;
+    private static final boolean STOP = false;
     @Test
     void 자동차_전진_테스트() {
         // given
