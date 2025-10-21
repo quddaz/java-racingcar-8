@@ -1,21 +1,20 @@
 package racingcar.config;
 
 import racingcar.controller.RacingCarController;
+import racingcar.service.RacingCarService;
 import racingcar.util.InputParser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class AppConfig {
-    private final InputView inputView;
-    private final OutputView outputView;
-    private final InputParser inputParser;
     private final RacingCarController racingCarController;
 
     public AppConfig(){
-        this.inputView = new InputView();
-        this.outputView = new OutputView();
-        this.inputParser = new InputParser();
-        this.racingCarController = new RacingCarController(inputView, outputView, inputParser);
+        InputView inputView = new InputView();
+        OutputView outputView = new OutputView();
+        InputParser inputParser = new InputParser();
+        RacingCarService racingCarService = new RacingCarService(inputView, outputView, inputParser);
+        this.racingCarController = new RacingCarController(racingCarService);
     }
 
     public RacingCarController getRacingCarController(){
