@@ -28,6 +28,7 @@ public class OutputView {
             System.out.printf(CAR_MOVEMENT_COUNT_MESSAGE,
                 carView.name(), "-".repeat(Math.max(0, carView.position())));
         }
+        System.out.println();
     }
 
     public void printWinnerAnnouncement(Winners winners) {

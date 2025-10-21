@@ -31,6 +31,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 빈_자동차_이름_테스트() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi,", "1"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

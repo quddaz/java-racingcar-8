@@ -17,21 +17,21 @@ public class RacingCarService {
         this.inputParser = inputParser;
     }
 
+    // 1. 자동차 이름 입력 요청
     public Cars setupRacingCars() {
-        // 1. 자동차 이름 입력 요청
         outputView.printCarNameMessage();
         String[] cars = inputParser.parseCarNames(inputView.readInput());
         return new Cars(cars);
     }
 
+    // 2. 시도 횟수 입력 요청
     public int setupRaceCount() {
-        // 2. 시도 횟수 입력 요청
         outputView.printTryCountMessage();
         return inputParser.parseRaceCount(inputView.readInput());
     }
 
+    // 3. 레이싱 실행
     public void startRacing(Cars racingCars, int raceCount) {
-        // 3. 레이싱 실행
         outputView.printRacingResultMessage();
         for (int i = 0; i < raceCount; i++) {
             racingCars.runSingleRound();
@@ -39,8 +39,8 @@ public class RacingCarService {
         }
     }
 
+    // 4. 우승자 발표
     public void printWinners(Cars racingCars) {
-        // 4. 우승자 발표
         Winners winners = racingCars.getWinners();
         outputView.printWinnerAnnouncement(winners);
     }
