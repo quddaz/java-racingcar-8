@@ -11,7 +11,7 @@ import racingcar.util.NumberGenerator;
 
 public class Race {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Race(String[] carName) {
         this.cars = new ArrayList<>();

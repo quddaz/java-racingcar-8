@@ -13,6 +13,7 @@ public class RacingCarController {
     private final InputView inputView;
     private final OutputView outputView;
     private final InputParser inputParser;
+
     public RacingCarController(RacingCarService racingCarService, InputView inputView, OutputView outputView, InputParser inputParser) {
         this.racingCarService = racingCarService;
         this.inputView = inputView;
@@ -26,6 +27,7 @@ public class RacingCarController {
         runRound(race, raceCount);
         printWinners(race);
     }
+
     private Race setupRacingCars() {
         outputView.printCarNameMessage();
         String[] carNames = inputParser.parseCarNames(inputView.readInput());

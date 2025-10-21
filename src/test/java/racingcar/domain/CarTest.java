@@ -13,7 +13,7 @@ public class CarTest {
         Car car = new Car("pobi", 0);
 
         // when
-        car.movePosition(MOVING_FORWARD); // 4를 받으면 전진
+        car.movePosition(MOVING_FORWARD);
 
         // then
         assertThat(car.getPosition()).isEqualTo(1);
@@ -25,7 +25,7 @@ public class CarTest {
         Car car = new Car("pobi", 0);
 
         // when
-        car.movePosition(STOP); // 3을 받으면 정지
+        car.movePosition(STOP);
 
         // then
         assertThat(car.getPosition()).isEqualTo(0);
