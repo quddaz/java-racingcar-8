@@ -13,7 +13,7 @@ public class InputParserTest {
         // when & then
         assertThatThrownBy(() -> inputParser.parseCarNames(input))
             .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("자동차 이름은 빈 칸일 수 없습니다.");
+            .hasMessageContaining("자동차 이름은 1자 이상 5자 이하만 가능합니다.");
     }
 
     @Test
@@ -23,7 +23,7 @@ public class InputParserTest {
         // when & then
         assertThatThrownBy(() -> inputParser.parseCarNames(input))
             .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("자동차 이름은 1자 이상 5자 이하이어야 합니다.");
+            .hasMessageContaining("자동차 이름은 1자 이상 5자 이하만 가능합니다.");
     }
 
     @Test
@@ -33,7 +33,7 @@ public class InputParserTest {
         // when & then
         assertThatThrownBy(() -> inputParser.parseRaceCount(input))
             .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("시도 횟수는 1 이상이어야 합니다.");
+            .hasMessageContaining("시도 횟수는 1 이상의 숫자여야 합니다.");
     }
 
     @Test
