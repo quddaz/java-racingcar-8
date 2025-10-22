@@ -16,6 +16,9 @@ public class AppConfig {
     private final RacingCarService racingCarService;
     private final RacingCarController racingCarController;
 
+    private final int RANDOM_MIN_VALUE = 0;
+    private final int RANDOM_MAX_VALUE = 9;
+
     public AppConfig() {
         // View & Util
         this.inputView = new InputView();
@@ -23,8 +26,6 @@ public class AppConfig {
         this.inputParser = new InputParser();
 
         // Service & Controller
-        int RANDOM_MIN_VALUE = 0;
-        int RANDOM_MAX_VALUE = 9;
         this.randomNumberGenerator = new RandomNumberGenerator(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
         this.racingCarService = new RacingCarService(randomNumberGenerator);
 
