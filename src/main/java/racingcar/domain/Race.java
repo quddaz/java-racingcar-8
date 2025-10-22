@@ -38,7 +38,8 @@ public class Race {
     public void runSingleRound(NumberGenerator numberGenerator) {
         for (Car car : cars) {
             int randomNumber = numberGenerator.generate();
-            car.movePosition(randomNumber >= MOVING_FORWARD);
+            if(randomNumber >= MOVING_FORWARD)
+                car.move();
         }
     }
 

@@ -9,10 +9,8 @@ public class Car {
         this.position = position;
     }
 
-    public void movePosition(boolean canMove) {
-        if (canMove) {
-            position++;
-        }
+    public void move() {
+        position++;
     }
 
     public String getName() {

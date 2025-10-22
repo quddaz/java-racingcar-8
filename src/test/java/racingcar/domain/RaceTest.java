@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.dto.Winners;
 import racingcar.util.NumberGenerator;
