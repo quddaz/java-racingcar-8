@@ -12,7 +12,7 @@ import racingcar.util.NumberGenerator;
 public class Race {
 
     private final List<Car> cars;
-
+    private static final int MOVING_FORWARD = 4;
     public Race(String[] carName) {
         this.cars = new ArrayList<>();
         setupRaceCarNameList(carName);
@@ -38,7 +38,7 @@ public class Race {
     public void runSingleRound(NumberGenerator numberGenerator) {
         for (Car car : cars) {
             int randomNumber = numberGenerator.generate();
-            car.movePosition(randomNumber >= 4);
+            car.movePosition(randomNumber >= MOVING_FORWARD);
         }
     }
 
