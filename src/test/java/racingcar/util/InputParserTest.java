@@ -15,7 +15,15 @@ public class InputParserTest {
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("자동차 이름은 1자 이상 5자 이하만 가능합니다.");
     }
-
+    @Test
+    void 자동차_1대_이하_테스트(){
+        // given
+        String input = "pobi";
+        // when & then
+        assertThatThrownBy(() -> inputParser.parseCarNames(input))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining("자동차는 최소 2대 이상이어야 합니다.");
+    }
     @Test
     void 이름_길이_초과_테스트() {
         // given
