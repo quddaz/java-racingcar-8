@@ -15,6 +15,7 @@
     - [x] 모든 시도가 끝난 후 가장 멀리 간 자동차 이름을 출력한다.
     - [x] 우승자가 여러 명일 경우 쉼표(,)로 구분하여 출력한다.
 - [x] **예외 처리 옵션**
+    - [x] 자동차가 1대 이하일 경우 IllegalArgumentException 예외를 발생시킨다.
     - [x] 자동차 이름이 5자를 초과할 경우 IllegalArgumentException 예외를 발생시킨다.
     - [x] 중복된 자동차 이름이 입력될 경우 IllegalArgumentException 예외를 발생시킨다.
     - [x] 시도 횟수가 숫자가 아닐 경우 IllegalArgumentException 예외를 발생시킨다.

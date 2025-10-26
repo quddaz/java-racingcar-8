@@ -17,12 +17,19 @@ public class InputParser {
             names[i] = names[i].trim();
             validateCarNames(names[i]);
         }
+        validateCarCount(names);
         return names;
     }
 
     private void validateCarNames(String name) {
         if (name.isEmpty() || name.length() > 5) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_EXCEEDED.getMessage());
+        }
+    }
+
+    private void validateCarCount(String[] names) {
+        if (names.length < 2) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_MIN_COUNT_NOT_MET.getMessage());
         }
     }
 
