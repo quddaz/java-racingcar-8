@@ -1,7 +1,8 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import racingcar.domain.dto.CarView;
 import racingcar.domain.dto.CarViews;
@@ -13,21 +14,17 @@ public class Race {
 
     private final List<Car> cars;
     private static final int MOVING_FORWARD = 4;
-    public Race(String[] carName) {
-        this.cars = new ArrayList<>();
-        setupRaceCarNameList(carName);
+    public Race(String[] carNames) {
+        validateDuplicates(carNames);
+        this.cars = Arrays.stream(carNames)
+            .map(name -> new Car(name, 0))
+            .collect(Collectors.toList());
     }
 
-    public void setupRaceCarNameList(String[] carNames) {
-        for (String name : carNames) {
-            // 기존 cars 리스트에 하나라도 있는지 확인합니다.
-            boolean isDuplicate = cars.stream()
-                .anyMatch(car -> car.getName().equals(name));
-
-            if (isDuplicate) {
-                throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAME.getMessage());
-            }
-            cars.add(new Car(name, 0));
+    private void validateDuplicates(String[] carNames){
+        Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
+        if(uniqueNames.size() != carNames.length) {
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAME.getMessage());
         }
     }
 
